@@ -1,29 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Belajar Bahasa Arab bersama Muarif</title>
+
   <style>
-    body {
+    :root {
+      --vh: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      height: 100%;
+      width: 100%;
       font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      overflow: hidden;
     }
+
+    body {
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
     iframe {
       border: none;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: calc(var(--vh, 1vh) * 100);
+      display: block;
     }
+
     .loader {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 18px;
+      font-size: 16px;
+      text-align: center;
+      padding: 12px 20px;
+    }
+
+    @media (max-width: 480px) {
+      .loader {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <div class="loader" id="loader">Loading Application...</div>
@@ -33,6 +63,16 @@
   onload="document.getElementById('loader').style.display='none';">
 </iframe>
 
-</body>
+<script>
+  // Fix 100vh issue on mobile browsers
+  function setViewportHeight() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
 
+  setViewportHeight();
+  window.addEventListener('resize', setViewportHeight);
+</script>
+
+</body>
 </html>
