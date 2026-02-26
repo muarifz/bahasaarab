@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Aplikasi E-Course</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    iframe {
+      border: none;
+      width: 100vw;
+      height: 100vh;
+    }
+    .loader {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="loader" id="loader">Loading Application...</div>
+
+<iframe 
+  src="https://script.google.com/macros/s/AKfycbypfZrFcFkqccODEMUVrKZWPya2hejZY-GmKVHN_NNfHvmsh7gPQM9pXVLZEH63x78JVg/exec"
+  onload="document.getElementById('loader').style.display='none';">
+</iframe>
+
+</body>
+</html>
